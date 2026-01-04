@@ -32,7 +32,7 @@ class DocumentAssistant:
             api_key=openai_api_key,
             model=model_name,
             temperature=temperature,
-            base_url="https://openai.vocareum.com/v1",
+            # base_url="https://openai.vocareum.com/v1",
         )
 
         # Initialize components
