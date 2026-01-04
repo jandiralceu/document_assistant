@@ -63,9 +63,6 @@ class UpdateMemoryResponse(BaseModel):
     )
 
 
-# TODO: Implement the UserIntent schema for intent classification.
-# This schema should include fields for intent_type, confidence, and reasoning.
-# Refer to README.md Task 1.2 for detailed field requirements.
 class UserIntent(BaseModel):
     """User intent classification"""
 
