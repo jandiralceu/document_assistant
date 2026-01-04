@@ -66,6 +66,8 @@ doc_assistant_project/
 
 ## System Architecture & Implementation Decisions
 
+![Agent Architecture](./docs/langgraph_agent_architecture.png)
+
 The system is built using a **Multi-Agent Router Architecture** powered by LangGraph. This design was chosen to provide deterministic control over the conversation flow while allowing flexibility in how individual tasks are handled.
 
 ### Core Components
