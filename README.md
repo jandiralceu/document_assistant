@@ -1,5 +1,7 @@
 # Document Assistant
 
+> Project developed for the **AI Agentic Engineer with LangChain and LangGraph** Nanodegree at [Udacity](https://www.udacity.com/).
+
 ## Project Overview
 
 This document assistant uses a multi-agent architecture with LangGraph to handle different types of user requests:
@@ -10,7 +12,7 @@ This document assistant uses a multi-agent architecture with LangGraph to handle
 
 ### Prerequisites
 
-- Python 3.9+
+- Python 3.10+
 - OpenAI API key
 
 ### Installation
