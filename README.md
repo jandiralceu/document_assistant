@@ -105,34 +105,63 @@ To ensure reliability, we do not rely on raw string parsing. Instead, we use `ll
 
 ## Example Conversations
 
-Here are examples of how the system handles different intents:
+Here are authentic examples of how the system handles different intents:
 
 ### 1. Q&A (Information Retrieval)
 
-**User**: "What is the total amount for invoice INV-001?"
+**User**: "What's the total amount in invoice INV-001?"
 **Assistant**:
 
-- _Intent_: `qa`
-- _Action_: Retrieves `INV-001`.
-- _Response_: "The total amount for invoice INV-001 is $22,000.00."
-- _Sources_: `['INV-001']`
+> The total amount in invoice INV-001 is $22,000, which includes a subtotal of $20,000 and a tax of $2,000.
+
+- **INTENT**: `calculation` (likely triggered by "amount", answered via retrieval)
+- **TOOLS USED**: `document_reader`
 
 ### 2. Summarization
 
-**User**: "Can you summarize the service agreement?"
+**User**: "Summarize the service agreement"
 **Assistant**:
 
-- _Intent_: `summarization`
-- _Action_: Retrieves `CON-001` (Service Agreement).
-- _Response_: "The Service Agreement between DocDacity Solutions and Healthcare Partners LLC is for a 12-month term valued at $180,000. It covers document processing, support, analytics, and compliance."
-- _Key Points_: `['12-month duration', '$180,000 total value', 'Includes analytics and support']`
+> ### Service Agreement Summary
+>
+> **Document ID:** CON-001
+> **Date:** January 1, 2024
+> **Parties Involved:**
+>
+> - **Provider:** DocDacity Solutions Inc.
+> - **Client:** Healthcare Partners LLC
+>
+> **Services Provided:**
+>
+> 1. Access to Document Processing Platform
+> 2. 24/7 Technical Support
+> 3. Monthly Data Analytics Reports
+> 4. Compliance Monitoring
+>
+> **Financial Details:**
+>
+> - **Monthly Fee:** $15,000
+> - **Total Contract Value:** $180,000
+>
+> **Duration:**
+>
+> - 12 months
+>
+> **Termination Clause:**
+>
+> - Either party may terminate the agreement with a 60-day written notice.
+>
+> This agreement outlines the services and financial terms between DocDacity Solutions Inc. and Healthcare Partners LLC for a one-year period, with a focus on document processing and support services.
+
+- **INTENT**: `summarization`
+- **TOOLS USED**: `document_search`, `document_reader`
 
 ### 3. Calculation
 
-**User**: "Calculate 15% tax on the invoice total of $50,000."
+**User**: "Calculate the sum of all invoice totals"
 **Assistant**:
 
-- _Intent_: `calculation`
-- _Tool Used_: `calculator` (Input: "50000 \* 0.15")
-- _Response_: "The calculated tax is $7,500."
-- _Explanation_: "15% of $50,000 is calculated by multiplying 50000 by 0.15."
+> The total sum of all invoice totals is $466,250.00.
+
+- **INTENT**: `calculation`
+- **TOOLS USED**: `document_search`, `document_reader`, `document_statistics`
